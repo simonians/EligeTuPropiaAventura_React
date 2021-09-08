@@ -1,8 +1,7 @@
 import { Component } from "react";
 import Records from "./Records";
 import Options from "./Options.jsx";
-import data from "./components/data.json"
-import { queryAllByAltText } from "@testing-library/react";
+import data from "./data.json"
 
 
 export default class Layout extends Component {
@@ -18,7 +17,6 @@ export default class Layout extends Component {
 
     componentDidUpdate(prevState) {
         if (prevState.contador !== this.state.contador) {
-            console.log(this.history);
             this.history.push(this.state.selectedOption)
         }
       }
