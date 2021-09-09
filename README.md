@@ -14,5 +14,5 @@ Desarrollar una aplicación del tipo “Elige tu propia aventura”. Habrá un t
 - Estados
 - Ciclo de vida.
 
-## Link al CodeSandbox
+## Link a CodeSandbox
 https://codesandbox.io/s/ctd-frontend3-primer-evaluacion-snt0z 
