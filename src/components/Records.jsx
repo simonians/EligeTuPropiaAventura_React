@@ -1,4 +1,5 @@
 import { Component } from "react";
+import "./css/Records.css"
 
 export default class Records extends Component {
     render() {

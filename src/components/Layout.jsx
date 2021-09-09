@@ -2,13 +2,14 @@ import { Component } from "react";
 import Records from "./Records";
 import Options from "./Options.jsx";
 import data from "./data.json"
+import "./css/Layout.css"
 
 
 export default class Layout extends Component {
     constructor(props){
         super(props)
         this.state = {
-            contador: 0,
+            counter: 0,
             selectedOption: "",
         }
         this.history = []
@@ -16,26 +17,26 @@ export default class Layout extends Component {
     }
 
     componentDidUpdate(prevState) {
-        if (prevState.contador !== this.state.contador) {
+        if (prevState.counter !== this.state.counter) {
             this.history.push(this.state.selectedOption)
         }
       }
 
-    handleClick(op) {
-        if(this.state.contador>=7){
+    handleClick(click) {
+        if(this.state.counter>=7){
             alert("FIN!");
             return;
         }
 
-        let sum = op === "A" ? 1 : 2;
-        const option = op === "A" ? "A" : "B";
+        let add = click === "A" ? 1 : 2;
+        const option = click === "A" ? "A" : "B";
 
         if(this.history.length > 0){
-            sum = 2;
+            add = 2;
         }
 
         this.setState ({
-            contador: this.state.contador + sum,
+            counter: this.state.counter + add,
             selectedOption: option,
         })
     }
@@ -43,8 +44,8 @@ export default class Layout extends Component {
     render() {
         return (
             <div className="layout">
-                <h1 className="historia">{data[this.state.contador].historia}</h1>
-                <Options optionA={data[this.state.contador].opciones.a} optionB={data[this.state.contador].opciones.b} handleClick={this.handleClick} />
+                <h1 className="historia">{data[this.state.counter].historia}</h1>
+                <Options optionA={data[this.state.counter].opciones.a} optionB={data[this.state.counter].opciones.b} handleClick={this.handleClick} />
                 <Records selectedOption={this.state.selectedOption} history={this.history}/>
             </div>
         )
