@@ -19,7 +19,8 @@ export default class Layout extends Component {
     componentDidUpdate(prevState) {
         if (prevState.counter !== this.state.counter) {
             this.history.push(this.state.selectedOption)
-        }
+        } 
+        
       }
 
     handleClick(click) {
@@ -31,13 +32,20 @@ export default class Layout extends Component {
         let add = click === "A" ? 1 : 2;
         const option = click === "A" ? "A" : "B";
 
-        if(this.history.length > 0){
-            add = 2;
+        if(this.history.length>0){
+            if (this.state.selectedOption === "A" && option === "B"){
+                add = 3
+            }
+            else if (this.state.selectedOption === "B" && option ==="A"){
+                add = 1
+            } else {
+                add = 2
+            }
         }
 
         this.setState ({
             counter: this.state.counter + add,
-            selectedOption: option,
+            selectedOption: option
         })
     }
 
